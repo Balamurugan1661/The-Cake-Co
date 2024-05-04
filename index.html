@@ -586,7 +586,7 @@
               <div class="tAmtSpan">
                 <h3 class="Thead">Total Amount :</h3>
                 <h3>&#8377;</h3>
-                <h3 class="tAmt"></h3>
+                <h3 class="tAmt" id="tAmt"></h3>
               </div>
               <div class="tAmtSpan">
                 <h3 class="Thead">Delivery :</h3>
@@ -596,12 +596,12 @@
               <div class="tAmtSpan">
                 <h3 class="Thead">Gst Tax :</h3>
                 <h3>&#8377;</h3>
-                <h3 class="gstAmt"></h3>
+                <h3 class="gstAmt" id="gstAmt"></h3>
               </div>
               <div class="tAmtSpan GtAmtS">
                 <h3 class="Thead">Grand Total :</h3>
                 <h3>&#8377;</h3>
-                <h3 class="GtAmt"></h3>
+                <h3 class="GtAmt" id="GtAmt"></h3>
               </div>
             </div>
           </div>
@@ -609,7 +609,7 @@
 
         <div class="deliveryDetails">
           <h2>Delivery Details</h2>
-          <form class="form1" method="post" action="#">
+          <form class="form1">
             <label for="CustomerName" class="lbl">Name</label>
             <input
               type="text"
@@ -642,7 +642,7 @@
                 type="radio"
                 id="Cash"
                 name="Payment"
-                value="Cash"
+                value="Cash on Delivery"
                 required
               />
               <label for="Payment">Cash On Delivery</label>
@@ -666,7 +666,7 @@
               class="inp1"
               required
             ></textarea>
-            <button type="button" onclick="sendMail()">Place Your Order</button>
+            <button type="button" onclick="sendMail()" id="placeOrder">Place Your Order</button>
             <button class="clear" onclick="clearForm()">Clear</button>
             <button class="viewcart">Edit Cart</button>
           </form>

@@ -1,0 +1,93 @@
+function sendMail1()
+{
+  
+// emailjs.send("service_gxlkll1","template_iywbvbp",{
+//   Cust_name: "Ram",
+//   Cust_email: "rprasath683@gmail.com",
+//   Cust_MobileNumber: "08608920760",
+//   Cust_Address: "3, vip nagar road, thavalakuppam, puducherry-07",
+//   message: "Black Forest qty:1",
+//   total_price: "500",
+//   Gst_price: "80",
+//   Gt_total: "680",
+//   from_name: "Ram",
+//   payment: "Cash",
+//   });
+
+}
+
+// emailjs.send("service_gxlkll1","template_iywbvbp",{
+//   Cust_name: "Ram",
+//   Cust_email: "rprasath683@gmail.com",
+//   Cust_MobileNumber: "08608920760",
+//   Cust_Address: "3, vip nagar road, thavalakuppam, puducherry-07",
+//   message: "Black Forest qty:1",
+//   total_price: "500",
+//   Gst_price: "80",
+//   Gt_total: "680",
+//   from_name: "Ram",
+//   payment: "Cash",
+//   });
+
+///////////// new ////////////
+// emailjs.send("service_gxlkll1","template_okp531t",{
+//   Cust_name: "Ram",
+//   Cust_email: "rprasath683@gmail.com",
+//   Cust_MobileNumber: "08608920760",
+//   Cust_Address: "3, vip nagar road, thavalakuppam, puducherry-07",
+//   payment: "Cash on Delivery",
+//   message: "Black Forest qty:1",
+//   total_price: "500",
+//   Gst_price: "80",
+//   Gt_total: "680",
+//   })
+
+function SendEmail(){
+    // alert("Step One");
+    // let pt;
+    // if(document.getElementById('Cash').checked)
+    // {
+    //   pt=document.getElementById('Cash').value;
+    // }
+      
+    // else if(document.getElementById('Upi').checked)
+    // {
+    //   pt=document.getElementById('Upi').value;
+    // }
+    // alert(document.getElementById('CustomerName').value+"/n"+document.getElementById('mail').value+"\n"+document.getElementById('mobileNumber').value+"\n"+document.getElementById('Address').value+"\n")
+    // var templateParams={
+    //   from_name:document.getElementById('CustomerName').value,
+    //   Cust_name:document.getElementById('CustomerName').value,
+    //   Cust_email:document.getElementById('mail').value,
+    //   Cust_MoblieNumber:document.getElementById('mobileNumber').value,
+    //   Cust_Address:document.getElementById('Address').value,
+    //   //Cust_Address:document.getElementById('Address').value,
+    //   Payment:pt,
+    //   total_price:TPrice,
+    //   Gst_price:TPrice*0.18,
+    //   Gttotal:(TPrice+100+(TPrice*0.18)),
+    //   message:messages,
+  
+    // };
+    
+    // const serviceID= "service_gxlkll1";
+    // const templateID ="template_iywbvbp";
+    // // emailjs
+    // // .send(serviceId,templatId,params).then((res)=>{
+    // //   //clearForm();
+    // //   alert("Your Order Is Sucessfully Placed");
+    // //   })
+    // // .catch((err)=>alert(err));
+    
+    // emailjs.send("service_gxlkll1","template_iywbvbp",{
+    //   Cust_name: "Ram",
+    //   Cust_email: "rprasath683@gmail.com",
+    //   Cust_MobileNumber: "08608920760",
+    //   Cust_Address: "3, vip nagar road, thavalakuppam, puducherry-07",
+    //   message: "Black Forest qty:1",
+    //   total_price: "500",
+    //   Gst_price: "80",
+    //   Gt_total: "680",
+    //   }).then((response)=>console.log(response.s));
+  
+  }

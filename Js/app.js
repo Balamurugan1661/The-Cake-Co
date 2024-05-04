@@ -191,11 +191,7 @@ const changeQuantity = (product_Id, type) => {
   addToMemory();
   addCartToHtml();
 };
-window.onclick = function (event) {
-  if (event.target == cartTab) {
-    body.classList.toggle("show");
-  }
-};
+
 
 const initApp = () => {
   fetch("Js/cakes.json")
@@ -224,55 +220,6 @@ function clearForm()
 
 }
 let messages='';
-function SendEmail(){
-  // alert("Step One");
-  // let pt;
-  // if(document.getElementById('Cash').checked)
-  // {
-  //   pt=document.getElementById('Cash').value;
-  // }
-    
-  // else if(document.getElementById('Upi').checked)
-  // {
-  //   pt=document.getElementById('Upi').value;
-  // }
-  // alert(document.getElementById('CustomerName').value+"/n"+document.getElementById('mail').value+"\n"+document.getElementById('mobileNumber').value+"\n"+document.getElementById('Address').value+"\n")
-  // var templateParams={
-  //   from_name:document.getElementById('CustomerName').value,
-  //   Cust_name:document.getElementById('CustomerName').value,
-  //   Cust_email:document.getElementById('mail').value,
-  //   Cust_MoblieNumber:document.getElementById('mobileNumber').value,
-  //   Cust_Address:document.getElementById('Address').value,
-  //   //Cust_Address:document.getElementById('Address').value,
-  //   Payment:pt,
-  //   total_price:TPrice,
-  //   Gst_price:TPrice*0.18,
-  //   Gttotal:(TPrice+100+(TPrice*0.18)),
-  //   message:messages,
-
-  // };
-  
-  // const serviceID= "service_gxlkll1";
-  // const templateID ="template_iywbvbp";
-  // // emailjs
-  // // .send(serviceId,templatId,params).then((res)=>{
-  // //   //clearForm();
-  // //   alert("Your Order Is Sucessfully Placed");
-  // //   })
-  // // .catch((err)=>alert(err));
-  
-  // emailjs.send("service_gxlkll1","template_iywbvbp",{
-  //   Cust_name: "Ram",
-  //   Cust_email: "rprasath683@gmail.com",
-  //   Cust_MobileNumber: "08608920760",
-  //   Cust_Address: "3, vip nagar road, thavalakuppam, puducherry-07",
-  //   message: "Black Forest qty:1",
-  //   total_price: "500",
-  //   Gst_price: "80",
-  //   Gt_total: "680",
-  //   }).then((response)=>console.log(response.s));
-
-}
 
 function sendMail(){
   if(  document.getElementById('CustomerName').value !="" 
@@ -281,6 +228,7 @@ function sendMail(){
     && document.getElementById('Address').value!=""
     &&(document.getElementById('Cash').checked==true ||document.getElementById('Upi').checked==true) )
   {
+    document.getElementById("placeOrder").disabled = true;
     let pt;
   if(document.getElementById('Cash').checked)
   {
@@ -291,41 +239,58 @@ function sendMail(){
   {
     pt=document.getElementById('Upi').value;
   }
-  //alert(pt);
-  // var params={
-  //   Cust_name :document.getElementById('CustomerName').value,
-  //   Cust_email :document.getElementById('mail').value,
-  //   Cust_MobileNumber:document.getElementById('mobileNumber').value,
-  //   Cust_Address:document.getElementById('Address').value,
-  //   message:messages.toString(),
-  //   total_price:TPrice.toString(),
-  //   Gst_price:(TPrice*0.18).toString(),
-  //   from_name:document.getElementById('CustomerName').value,
-  //   payment: pt.toString()
-  // // }
-  // alert("Step 2")
-  //   emailjs.send("service_gxlkll1","template_iywbvbp",{
-  //     Cust_name :document.getElementById('CustomerName').value,
-  //     Cust_email :document.getElementById('mail').value,
-  //     Cust_MobileNumber:document.getElementById('mobileNumber').value,
-  //     Cust_Address:document.getElementById('Address').value,
-  //     message:messages.toString(),
-  //     total_price:TPrice.toString(),
-  //     Gst_price:(TPrice*0.18).toString(),
-  //     payment: pt.toString()
-  //   });
-  //     alert("Step 3");
-  alert("Thanks For Ordering Your Order Will Be Processed\nThank You!...");
-      clearForm();
-      while(carts.length)
-      {
-        carts.pop();
-      }
-      
-  addToMemory();
-  addCartToHtml();
-  body.classList.toggle("show1");
+  let name = document.getElementById('CustomerName').value;
+  let email = document.getElementById('mail').value;
+  let mobileNo = document.getElementById('mobileNumber').value;
+  let address = document.getElementById('Address').value;
+  let paymentType= pt;
+  let messageUsed = messages;
+  let totalPriceForEmail = document.querySelector('.tAmt').textContent;
+  let GstAmountForEmail = document.getElementById('gstAmt').textContent;
+  let GrandTotalForEmail= document.getElementById('GtAmt').textContent;
 
+   console.log(name+"\n"+email+"\n"+mobileNo+"\n"+address+"\n"+paymentType+"\n"+messageUsed+"\n"+totalPriceForEmail+"\n"+GstAmountForEmail+"\n"+GrandTotalForEmail);
+
+  var templateParams={
+      Cust_name: name,
+      Cust_email: email,
+      Cust_MobileNumber: mobileNo,
+      Cust_Address: address,
+      payment: paymentType,
+      message: messageUsed,
+      total_price: totalPriceForEmail,
+      Gst_price:  GstAmountForEmail,
+      Gt_total: GrandTotalForEmail,
+      };
+      emailjs.send('service_gxlkll1', 'template_okp531t', templateParams)
+      .then(function(response) {
+        clearForm();
+         console.log('SUCCESS!', response.status, response.text);
+         window.alert("Thanks For Ordering Your Order Will Be Processed\nThank You!...");
+         while(carts.length)
+         {
+           carts.pop();
+         }
+         
+          addToMemory();
+          addCartToHtml();
+          body.classList.toggle("show1");
+   
+        //  window.alert("Sent successfully!");
+         
+      });
+  
+  // alert("Thanks For Ordering Your Order Will Be Processed\nThank You!...");
+  //     clearForm();
+  //     while(carts.length)
+  //     {
+  //       carts.pop();
+  //     }
+      
+  // addToMemory();
+  // addCartToHtml();
+  // body.classList.toggle("show1");
+  document.getElementById("placeOrder").disabled = false;
 
   }
   else{
@@ -336,15 +301,3 @@ function sendMail(){
 }
 initApp();
 
-// emailjs.send("service_gxlkll1","template_iywbvbp",{
-//   Cust_name: "Ram",
-//   Cust_email: "rprasath683@gmail.com",
-//   Cust_MobileNumber: "08608920760",
-//   Cust_Address: "3, vip nagar road, thavalakuppam, puducherry-07",
-//   message: "Black Forest qty:1",
-//   total_price: "500",
-//   Gst_price: "80",
-//   Gt_total: "680",
-//   from_name: "Ram",
-//   payment: "Cash",
-//   });
