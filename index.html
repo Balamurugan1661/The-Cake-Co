@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Cakes</title>
-    <link rel="icon" href="img/k7.webp">
+    <link rel="icon" href="img/k7.webp" />
 
     <!-- Latest compiled and minified CSS -->
     <link
@@ -23,7 +23,7 @@
         emailjs.init("nSFhK6h0B6VO3DkPz");
       })();
     </script>
-        <!-- <script>
+    <!-- <script>
           function sendMail(){
       emailjs.send("service_gxlkll1","template_iywbvbp",{
         Cust_name: "Ram",
@@ -608,6 +608,7 @@
         </div>
 
         <div class="deliveryDetails">
+          <span>&times;</span>
           <h2>Delivery Details</h2>
           <form class="form1">
             <label for="CustomerName" class="lbl">Name</label>
@@ -666,14 +667,27 @@
               class="inp1"
               required
             ></textarea>
-            <button type="button" onclick="sendMail()" id="placeOrder">Place Your Order</button>
+            <button type="button" onclick="sendMail()" id="placeOrder">
+              Place Your Order
+            </button>
             <button class="clear" onclick="clearForm()">Clear</button>
             <button class="viewcart">Edit Cart</button>
           </form>
         </div>
       </div>
     </div>
-
+    <!-- Otp Verification Using FireBase For Mobile  date:05/05/2024 time:5:34Am-->
+    <!-- <div id="mobileEnter">
+  <h2>OTP Verification</h2>
+  <form id="otpform">
+    
+    <label for="mobileNumberOtp" style="margin-bottom: 10px;">Enter your Mobile Number :</label>
+    <input type="number" name="mobileNumberOtp" id="mobileNumberOtp" placeholder="Mobile Number" style="margin-bottom: 40px;">
+    <p id="errorMsg" style="color: red;"></p>
+    <div id="recaptchaContainer"></div>
+    <button type="button">Send OTP</button>
+  </form>
+</div> -->
 
     <script src="Js/app.js"></script>
   </body>
